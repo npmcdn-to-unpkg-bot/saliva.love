@@ -1,0 +1,286 @@
+/*unify classes*/
+
+@-webkit-keyframes fill {
+  0% {
+    fill: #fff;
+  }
+  50% {
+    fill: transparent;
+  }
+  100% {
+    fill: transparent;
+  }
+}
+
+@-moz-keyframes fill {
+  0% {
+    fill: #fff;
+  }
+  50% {
+    fill: transparent;
+  }
+  100% {
+    fill: transparent;
+  }
+}
+
+@keyframes fill {
+  0% {
+    fill: #fff;
+  }
+  50% {
+    fill: transparent;
+  }
+  100% {
+    fill: transparent;
+  }
+}
+
+@-webkit-keyframes sixteen {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@-moz-keyframes sixteen {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes sixteen {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+.desc, #close, .controls {
+  -webkit-transition: opacity 1s linear;
+  -moz-transition: opacity 1s linear;
+  transition: opacity 1s linear;
+}
+
+.project {
+  -webkit-transition: opacity .5s linear;
+  -moz-transition: opacity .5s linear;
+  transition: opacity .5s linear;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+html, body {
+  height: 100%;
+  font-family: helvetica;
+  background: linear-gradient(270deg, #92A8D1, #F7CAC9);
+  background-size: 400% 400%;
+  -webkit-animation: sixteen 20s ease infinite;
+  -moz-animation: sixteen 20s ease infinite;
+  animation: sixteen 20s ease infinite;
+}
+
+img {
+  max-width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  font-weight: bold;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  color: #fff;
+  font-size: 1em;
+  height: 30px;
+}
+
+.projectnav {
+  font-weight: bold;
+  background: transparent;
+  position: absolute;
+  top: 50px;
+  left: 20px;
+}
+
+/* remove ul/li from navstructure */
+
+.projectnav li {
+  padding: 0 0 0 20px;
+}
+
+.projectnav a {
+  letter-spacing: 2.5px;
+  position: relative;
+  z-index: 999;
+}
+
+.projectnav svg {
+  position: relative;
+  margin-bottom: 40px;
+  height: 80px;
+}
+
+svg text {
+  -webkit-transition: fill .3s ease;
+  -moz-transition: fill .3s ease;
+  transition: fill .3s ease;
+  cursor: pointer;
+  font-size: 1.5em;
+}
+
+.transparent {
+  paint-order: stroke;
+  fill: transparent !important;
+  stroke: #fff;
+  stroke-width: 0.5px;
+  stroke-linecap: butt;
+  stroke-linejoin: miter;
+}
+
+.thumb {
+  display: none;
+  position: absolute;
+  z-index: 989;
+	width: 200px;
+	height: 200px;
+}
+
+.project {
+  visibility: hidden;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.project.project-visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.flickity {
+  padding: 2em 2em 4em 2em;
+  width: 100%;
+  height: 85%;
+  position: relative;
+  overflow: hidden;
+}
+
+.desc {
+  font-weight: bold;
+  overflow: scroll;
+  -webkit-scrollbar: hidden;
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  z-index: 999;
+  background: red;
+  padding: 20px;
+  top: 2.5em;
+  right: 2.5em;
+  height: 30vh;
+  width: 30%;
+  background: transparent;
+  border: 1px #fff solid;
+  line-height: 180%;
+}
+
+.desc h2 {
+  margin-top: 20px;
+  line-height: 200%;
+}
+.desc h2 svg {
+  height: 60px;
+}
+
+
+.desc::-webkit-scrollbar {
+    display: none;
+}
+
+#close {
+  display: none;
+  top: 20px;
+  right: 10px;
+  position: absolute;
+}
+
+#close svg {
+  width: 0;
+  height: 0;
+}
+
+.controls {
+  visibility: none;
+  opacity: 0;
+  font-weight: bold;
+  font-size: 1.5em;
+  position: fixed;
+  bottom: 0.75em;
+  right: 1.3em;
+  text-align: right;
+  line-height: 150%;
+}
+
+@media (max-width: 667px) {
+  .project {
+    -webkit-transition: none;
+    -moz-transition: none;
+    transition: none;
+  }
+  .thumb {
+    display: none;
+  }
+  #close {
+    z-index: 995;
+    position: fixed;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+  }
+  #close svg {
+    width: 65px;
+    height: 50px;
+  }
+  .controls {
+    display: none;
+  }
+  .projectnav {
+    /*overflow: scroll;*/
+    /*-webkit-scrollbar: hidden;*/
+  }
+  .project {
+    position: absolute;
+    height: auto;
+  }
+  .flickity {
+    z-index: 990;
+    height: 70vh;
+    padding: 0;
+  }
+  .project-visible .desc {
+    z-index: 0;
+    color: #fff !important;
+    position: relative;
+    border: none;
+    padding-top: 0;
+    opacity: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    visibility: visible;
+    height: auto;
+  }
+  html, body {
+    overflow-x: hidden;
+  }
+}
