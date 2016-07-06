@@ -1,0 +1,139 @@
+/* Animations */
+
+@keyframes fill {
+  0% {
+    fill: #fff;
+  }
+  50% {
+    fill: transparent;
+  }
+  100% {
+    fill: transparent;
+  }
+}
+
+@keyframes bg {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* Config */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+button, input {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  font-weight: normal;
+}
+
+p {
+  line-height: 120%;
+}
+
+html, body {
+  font-family: helvetica;
+  height: 100%;
+}
+
+.bg {
+  z-index: -1;
+  background: linear-gradient(270deg, #92A8D1, #F7CAC9);
+  animation: bg 20s ease infinite;
+  background-size: 400% 400%;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  right: 0;
+  left: 0;
+}
+
+/* Controls */
+
+.controls * {
+  font-weight: bold;
+  z-index: 4;
+  font-size: 1.5em;
+  right: 0;
+  position: absolute;
+}
+
+.controls button {
+  top: -1em;
+}
+
+.controls p {
+  bottom: -2.5em;
+}
+
+/* Navigation */
+
+nav {
+  z-index: 3;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 1em 2em;
+}
+
+nav a {
+  text-decoration: none;
+  margin: 4em 0;
+  display: block;
+  letter-spacing: 0.15em;
+  font-weight: bold;
+  /*text-rendering: geometricPrecision;*/
+}
+
+nav svg {
+  height: 60px;
+  width: 320px;
+}
+
+nav text {
+  transition: fill .2s ease-in-out, stroke .3s ease-in-out;
+  cursor: pointer;
+  font-size: 1.5em;
+  paint-order: stroke;
+  stroke: #none;
+  stroke-width: 0.02em;
+  stroke-linecap: butt;
+  stroke-linejoin: miter;
+}
+
+.home nav a:hover text {
+  fill: transparent !important;
+  stroke: #fff;
+}
+
+/* Content */
+
+.content {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: calc(100% - 4em);
+  height: calc(100% - 8em);
+  margin: 2em 2em 6em 2em;
+}
+
+.desc {
+  z-index: 2;
+}
+
+/* Breakpoint */
+
+@media (max-width: 669px) {
+  .controls p {
+    display: none;
+  }
+}
